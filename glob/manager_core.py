@@ -1092,9 +1092,13 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
 
     print("workflow: ", workflow)
     if 'nodes' in workflow:
+        print("node in workflows")
         extract_nodes(workflow)
+        print("after extract")
 
+        print('before extra')
         if 'extra' in workflow:
+            print('extract in workflow')
             if 'groupNodes' in workflow['extra']:
                 for x in workflow['extra']['groupNodes'].values():
                     extract_nodes(x)
