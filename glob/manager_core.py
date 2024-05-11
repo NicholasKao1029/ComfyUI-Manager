@@ -1091,6 +1091,11 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
                 used_nodes.add(node_name)
 
     print("workflow: ", workflow)
+    print("is this new?")
+    if 'nodes' not in workflow:
+        print("not in workflow")
+        print(workflow['nodes'])
+
     if 'nodes' in workflow:
         print("node in workflows")
         extract_nodes(workflow)
