@@ -1078,7 +1078,9 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
     used_nodes = set()
 
     def extract_nodes(sub_workflow):
+        print("in extract nodes")
         for x in sub_workflow['nodes']:
+            print('x: ', x)
             node_name = x.get('type')
 
             # skip virtual nodes
@@ -1088,6 +1090,7 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
             if node_name is not None and not node_name.startswith('workflow/'):
                 used_nodes.add(node_name)
 
+    print("workflow: ", workflow)
     if 'nodes' in workflow:
         extract_nodes(workflow)
 
