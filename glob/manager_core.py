@@ -1095,6 +1095,7 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
             if 'groupNodes' in workflow['extra']:
                 for x in workflow['extra']['groupNodes'].values():
                     extract_nodes(x)
+    print("used_nodes: ", used_nodes)
 
     # lookup dependent custom nodes
     ext_map = await get_data_by_mode(mode, 'extension-node-map.json', channel_url)
