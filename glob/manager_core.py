@@ -1100,6 +1100,8 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
     # lookup dependent custom nodes
     ext_map = await get_data_by_mode(mode, 'extension-node-map.json', channel_url)
 
+    print('ext_map: ', ext_map)
+
     rext_map = {}
     preemption_map = {}
     patterns = []
@@ -1127,6 +1129,10 @@ async def extract_nodes_from_workflow(filepath, mode='local', channel_url='defau
 
         if 'nodename_pattern' in v[1]:
             patterns.append((v[1]['nodename_pattern'], k))
+        
+    print("rext_map: ", rext_map)
+    print("preemption_map: ", preemption_map)
+    print("patterns: ", patterns)
 
     # identify used extensions
     used_exts = set()
